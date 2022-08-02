@@ -6,6 +6,7 @@ const cors = require('cors');
 const path = require('path');
 /*var bodyparser=require('body-parser');*/
 const jwt = require('jsonwebtoken')
+const port = process.env.PORT || 8080 ;
 var app = new express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -137,7 +138,7 @@ function verifyToken(req,res,next){
   next()
 }
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log('listening to port 3000');
 });
 
