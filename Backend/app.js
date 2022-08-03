@@ -14,9 +14,7 @@ app.use(express.json());
 app.use(express.static('./dist/frontend'));
   
 ////app.use(bodyparser.json());
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
- });
+
 /*book operations. Begin*/
 app.post('/api/addbook',verifyToken, function(req,res){
    
@@ -137,7 +135,9 @@ function verifyToken(req,res,next){
   req.userId = playload.subject;
   next()
 }
-
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+ });
 app.listen(PORT, function(){
     console.log('listening to port 3000');
 });
