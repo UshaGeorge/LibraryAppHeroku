@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
-const dotenv=require('dotenv');
-dotenv.config();
+// const dotenv=require('dotenv');
+// dotenv.config();
 //mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Library');
-mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology:true});
+//mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology:true});
 //mongoose.connect('mongodb://localhost:27017/Library');
+const mongoDbServer = process.env.MONGODB_URI || 'mongodb://localhost:27017/Library';
+mongoose.connect(mongoDbServer,{useNewUrlParser:true,useUnifiedTopology:true});
 const Schema = mongoose.Schema;
 
 
